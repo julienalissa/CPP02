@@ -16,10 +16,10 @@ Fixed &Fixed::operator=(const Fixed &other)
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		int	bitsApresCopie;
+		int	bitsAfterCopy;
 
-		bitsApresCopie = other.getRawBits();
-		this->_rawBits = bitsApresCopie;
+		bitsAfterCopy = other.getRawBits();
+		this->_rawBits = bitsAfterCopy;
 	}
 	return (*this);
 }
@@ -29,14 +29,17 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
+
+
+
 Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
 
-	int	valeurDecalee;
+	int	valueRawBits;
 
-	valeurDecalee = value << _fractionalBits;
-	this->_rawBits = valeurDecalee;
+	valueRawBits = value << _fractionalBits;
+	this->_rawBits = valueRawBits;
 }
 
 Fixed::Fixed(const float value)
@@ -61,29 +64,31 @@ void	Fixed::setRawBits(const int raw)
 	this->_rawBits = raw;
 }
 
+
+
 float	Fixed::toFloat(void) const
 {
-	float	rawEnFloat;
+	float	rawInFloat;
 	float	resultatFloat;
 
-	rawEnFloat = (float)this->_rawBits;
-	resultatFloat = rawEnFloat / 256.0f;
+	rawInFloat = (float)this->_rawBits;
+	resultatFloat = rawInFloat / 256.0f;
 	return (resultatFloat);
 }
 
 int	Fixed::toInt(void) const
 {
-	int	resultatInt;
+	int	resInt;
 
-	resultatInt = this->_rawBits >> _fractionalBits;
-	return (resultatInt);
+	resInt = this->_rawBits >> _fractionalBits;
+	return (resInt);
 }
 
 std::ostream	&operator<<(std::ostream &out, const Fixed &fixed)
 {
-	float	valeurAffichable;
+	float	valueDisplay;
 
-	valeurAffichable = fixed.toFloat();
-	out << valeurAffichable;
+	valueDisplay = fixed.toFloat();
+	out << valueDisplay;
 	return (out);
 }

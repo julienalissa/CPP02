@@ -1,0 +1,13 @@
+2'8
+
+roudf() :
+si >= 0.5
+si <  0.5
+
+les banques base 10 pour ne pas avoir le probleme d'arrondit et pas de float
+nous base 2 pour aller plus vite
+
+
+std::cout << d;
+
+operator<<(std::cout, d);
