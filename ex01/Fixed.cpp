@@ -38,7 +38,7 @@ Fixed::Fixed(const int value)
 
 	int	valueRawBits;
 
-	valueRawBits = value << _fractionalBits;
+	valueRawBits = value << _fractionalBits; 
 	this->_rawBits = valueRawBits;
 }
 
